@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors());
-app.use(express.json()); // ✅ ROUTES SE PEHLE
+app.use(express.json()); // ✅ YAHI SAHI JAGAH HAI (routes se pehle)
 
 app.use("/api", postsRoutes);
 app.use("/api", userRoutes);
