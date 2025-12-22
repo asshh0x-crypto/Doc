@@ -1,61 +1,53 @@
-###user 
-POST http://localhost:5000/api/register
+### 🔧 LOGIN REQUEST (FINAL)
+POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-  "name": "Ash",
-  "email": "ash@gmail.com",
-  "password": "123456",
-  "userName": "ashh0x"
-}
-
-### REGISTER
-POST http://localhost:5000/api/register
-Content-Type: application/json
-
-{
-  "name": "Test User",
-  "email": "test@gmail.com",
-  "password": "123456",
-  "userName": "testuser"
+  "email": "shakir@gmail.com",
+  "password": "1234567"
 }
 
 ###
-POST http://localhost:5000/api/register
+
+###🔧 GET USER PROFILE (FINAL)
+POST  http://localhost:5000/get_user_and_profile
 Content-Type: application/json
 
 {
-  "name": "jex",
-  "email": "jex@gmail.com",
-  "password": "123456",
-  "userName": "jex"
+  "token": "47d3e21c870751e57438a0fbe66301d627b3c27cc4120f1ec08eea3d596a82a2"
 }
 
-### Login 
-POST http://localhost:5000/api/login
+###
+
+###🔧 UPDATE PROFILE DATA
+POST http://localhost:5000/update_profile_data
 Content-Type: application/json
 
 {
-  "email": "ash@gmail.com",
-  "password": "123456"
+  "token": "47d3e21c870751e57438a0fbe66301d627b3c27cc4120f1ec08eea3d596a82a2",
+  "bio": "I'm a Software Engineer at Amazon"
 }
 
-### geting profile
-POST http://localhost:5000/api/get_user_and_profile
+###
+
+###GET ALL USERS
+GET  http://localhost:5000/get_all_users
 Content-Type: application/json
 
 {
-  "token": "d2277c444277e3b17979ff08c716a9aac867baf941f88e73845bb08f797bff8c"
+  "profiles": [
+    {
+      "_id": "...",
+      "bio": "...",
+      "userId": {
+        "email": "shakir@gmail.com",
+        "userName": "shakir",
+        "profilePicture": "image.png"
+      }
+    }
+  ]
 }
 
 
-###UPDATE USER PROFILE
-POST http://localhost:5000/api/user_update
-Content-Type: application/json
 
-{
-  "token": "d2277c444277e3b17979ff08c716a9aac867baf941f88e73845bb08f797bff8c",
-  "userName": "az",
-  "email": "az@gmail.com"
-}
 

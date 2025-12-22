@@ -1,16 +1,20 @@
 import { Router } from "express";
 import multer from "multer";
+
 import {
   login,
   register,
   uploadProfilePicture,
-  getUserProfile,
   updateUserProfile,
+  getUserProfile,
+  updateProfileData,
+  getAllUserProfile,
+  downloadProfile
 } from "../controllers/user.controller.js";
 
 const router = Router();
 
-/* multer config */
+/* ---------- MULTER CONFIG ---------- */
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
@@ -22,16 +26,27 @@ const storage = multer.diskStorage({
 
 const uploads = multer({ storage });
 
-/* routes */
+/* ---------- ROUTES ---------- */
+
+// auth
 router.post("/register", register);
 router.post("/login", login);
-router.post("/get_user_and_profile", getUserProfile);
-router.post("/user_update", updateUserProfile);
 
+// profile
 router.post(
   "/update_profile_picture",
   uploads.single("profile_picture"),
   uploadProfilePicture
 );
+
+router.post("/user_update", updateUserProfile);
+router.post("/get_user_and_profile", getUserProfile);
+router.post("/update_profile_data", updateProfileData);
+
+// admin / listing
+router.get("/get_all_users", getAllUserProfile);
+
+// download
+router.get("/download_resume", downloadProfile);
 
 export default router;

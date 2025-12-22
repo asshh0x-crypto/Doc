@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-
 import userRoutes from "./routes/user.routes.js";
 import postsRoutes from "./routes/posts.routes.js";
 
@@ -27,8 +26,9 @@ mongoose
   });
 
 /* ROUTES */
-app.use("/api", userRoutes);
-app.use("/api", postsRoutes);
+app.use("/", postsRoutes);
+app.use("/", userRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on port ${PORT}`);
